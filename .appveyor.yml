@@ -112,5 +112,5 @@ after_test:
   #- python setup.py --quiet bdist_wheel
   - ps: "ls dist"
   # APPVEYOR_REPO_TAG will be true if commit is tagged
-  - "IF /I %APPVEYOR_REPO_TAG%==true (pip install wheelhouse-uploader -q)"
-  - "IF /I %APPVEYOR_REPO_TAG%==true (python -m wheelhouse_uploader upload --local-folder=dist --no-ssl-check --no-update-index --region=%WHEELHOUSE_UPLOADER_REGION% wheels)"
+  - pip install wheelhouse-uploader -q
+  - python -m wheelhouse_uploader upload --local-folder=dist --no-ssl-check --no-update-index --region=%WHEELHOUSE_UPLOADER_REGION% wheels
